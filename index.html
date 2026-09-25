@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samuel Greene | Computer Engineering & Systems</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-brand">
+        <span class="brand-name">Samuel Greene</span>
+        <span class="brand-title">Computer Engineering & Science</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#research" class="nav-link">Research</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#contact" class="nav-link nav-btn">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+      <div class="hero-header">
+        <span class="badge badge-accent">UC Davis Senior • Expected Grad June 2027</span>
+        <h1 class="hero-title">Systems, Cloud Infrastructure & Low-Level Software</h1>
+        <p class="hero-subtext">
+          I build high-performance pipelines, embedded firmware, and specialized GPU/systems software. Currently researching GPU-accelerated medical image processing for UC Davis and the University of Washington.
+        </p>
+        <div class="hero-actions">
+          <button id="copy-email-btn" class="btn btn-primary" data-email="scgreene@ucdavis.edu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <span id="copy-btn-text">Copy Email</span>
+          </button>
+          <a href="https://github.com/samuel-greene" target="_blank" rel="noopener" class="btn btn-secondary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            GitHub
+          </a>
+          <a href="#projects" class="btn btn-ghost">View Works &rarr;</a>
+        </div>
+      </div>
+      
+      <!-- Key Metric Highlights -->
+      <div class="metrics-bar">
+        <div class="metric-card">
+          <span class="metric-value">2-3d &rarr; 15m</span>
+          <span class="metric-label">Medical Image Processing Pipeline Reduction</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-value">3.46</span>
+          <span class="metric-label">UC Davis Cumulative GPA</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-value">Bare-Metal</span>
+          <span class="metric-label">Embedded Firmware & Real-time C/C++</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Research Experience -->
+    <section id="research" class="section">
+      <div class="section-header">
+        <h2 class="section-title">Research Experience</h2>
+        <p class="section-subtitle">Real-world applications in medical computing, cloud infrastructure, and hardware integration.</p>
+      </div>
+
+      <div class="research-grid">
+        
+        <!-- CoreView Project -->
+        <article class="card research-card">
+          <div class="card-header">
+            <div>
+              <span class="card-tag">Cloud & GPU Infrastructure</span>
+              <h3 class="card-title">CoreView Project — Lead Systems Engineer</h3>
+              <p class="card-meta">UC Davis / University of Washington • June 2026 – Present</p>
+            </div>
+          </div>
+          <div class="card-body">
+            <p>Architected cloud infrastructure and high-throughput GPU inference pipelines to accelerate microscopy image processing across collaborating university labs.</p>
+            <ul class="bullet-list">
+              <li>Designed GPU-based medical image-processing pipelines on AWS (EC2, S3, SNS, IAM, ECR) and Google Cloud / RunPod environments.</li>
+              <li>Engineered concurrent data-ingestion mechanisms bridging Google Drive and cloud storage (S3/GCS) for automated lab transfers.</li>
+              <li>Containerized PyTorch, TensorFlow, and CUDA-accelerated OpenCV inference workloads using Docker.</li>
+              <li>Developed and deployed a full-stack microscopy image viewer using HTML/CSS/JS with a FastAPI backend deployed via Azure Container Apps.</li>
+            </ul>
+          </div>
+          <div class="card-footer">
+            <div class="tech-stack">
+              <span class="tech-badge">AWS</span>
+              <span class="tech-badge">GCP</span>
+              <span class="tech-badge">RunPod</span>
+              <span class="tech-badge">CUDA</span>
+              <span class="tech-badge">Docker</span>
+              <span class="tech-badge">PyTorch</span>
+              <span class="tech-badge">FastAPI</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Levenson Laboratory -->
+        <article class="card research-card">
+          <div class="card-header">
+            <div>
+              <span class="card-tag">Hardware Systems & Software Integration</span>
+              <h3 class="card-title">UCD Medical Center — Research Programmer</h3>
+              <p class="card-meta">Levenson Laboratory • Sep 2024 – June 2026</p>
+            </div>
+          </div>
+          <div class="card-body">
+            <p>Developed primary desktop applications and hardware interfaces for custom microscopy equipment used in clinical research.</p>
+            <ul class="bullet-list">
+              <li>Built <strong>FIBI Post Processing</strong> desktop application, accelerating image post-processing throughput by over 2x.</li>
+              <li>Lead developer on <strong>Maggie</strong>, the primary .NET interface to custom microscopy hardware, owning interactive ROI selection from UI design to backend hardware control.</li>
+              <li>Integrated OpenCV automated analysis tools, including feature detection, color correction, and multi-image overlays.</li>
+            </ul>
+          </div>
+          <div class="card-footer">
+            <div class="tech-stack">
+              <span class="tech-badge">C# / .NET</span>
+              <span class="tech-badge">OpenCV</span>
+              <span class="tech-badge">C++</span>
+              <span class="tech-badge">Hardware Interfaces</span>
+              <span class="tech-badge">Image Processing</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+      <div class="section-header-inline">
+        <div>
+          <h2 class="section-title">Personal Projects</h2>
+          <p class="section-subtitle">Systems firmware, graphics rendering, and language parser development.</p>
+        </div>
+        
+        <!-- Filter Buttons -->
+        <div class="filter-bar">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="embedded">Embedded</button>
+          <button class="filter-btn" data-filter="graphics">Graphics/C++</button>
+          <button class="filter-btn" data-filter="systems">Systems</button>
+        </div>
+      </div>
+
+      <div class="projects-grid">
+        
+        <!-- Project 1 -->
+        <article class="card project-card" data-category="embedded systems">
+          <div class="card-header">
+            <span class="card-tag">Embedded Firmware</span>
+            <h3 class="card-title">Bicycle Speed & GPS Tracking HUD</h3>
+          </div>
+          <div class="card-body">
+            <p>A real-time heads-up display streaming GPS coordinates, speed, and trip statistics to a handlebar-mounted OLED screen.</p>
+            <ul class="bullet-list">
+              <li>Implemented Kalman/Sensor Fusion filtering for asynchronous GPS and IMU sensor data.</li>
+              <li>Wrote bare-metal firmware for SPI/I2C peripheral drivers, interrupt-driven data capture, and low-power rendering.</li>
+            </ul>
+          </div>
+          <div class="card-footer">
+            <div class="tech-stack">
+              <span class="tech-badge">Embedded C</span>
+              <span class="tech-badge">SPI / I2C</span>
+              <span class="tech-badge">Sensor Fusion</span>
+              <span class="tech-badge">Bare-Metal</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="card project-card" data-category="graphics systems">
+          <div class="card-header">
+            <span class="card-tag">Graphics & Rendering</span>
+            <h3 class="card-title">Blithaven 2D Engine</h3>
+          </div>
+          <div class="card-body">
+            <p>A Rust-native 2D rendering framework designed on top of modern OpenGL graphics primitives.</p>
+            <ul class="bullet-list">
+              <li>Supports complex 2D geometry batching, texture atlases, sprite-sheet animation, and custom shader pipelines.</li>
+              <li>Exposes a clean real-time game-loop API for custom application development.</li>
+            </ul>
+          </div>
+          <div class="card-footer">
+            <div class="tech-stack">
+              <span class="tech-badge">Rust</span>
+              <span class="tech-badge">OpenGL</span>
+              <span class="tech-badge">GLSL</span>
+              <span class="tech-badge">Game Loop API</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="card project-card" data-category="systems graphics">
+          <div class="card-header">
+            <span class="card-tag">Compilers & Theory</span>
+            <h3 class="card-title">Language Tokenizer & Lexer</h3>
+          </div>
+          <div class="card-body">
+            <p>Custom programming language lexer and tokenizer grounded in formal Theory of Computation principles.</p>
+            <ul class="bullet-list">
+              <li>Leverages Pratt parsing techniques for extensible syntax parsing in linear time.</li>
+              <li>Built entirely in modern C++ with custom Makefile build systems.</li>
+            </ul>
+          </div>
+          <div class="card-footer">
+            <div class="tech-stack">
+              <span class="tech-badge">C++</span>
+              <span class="tech-badge">Theory of Comp</span>
+              <span class="tech-badge">Pratt Parsing</span>
+              <span class="tech-badge">Make</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Technical Skills -->
+    <section id="skills" class="section">
+      <div class="section-header">
+        <h2 class="section-title">Technical Expertise</h2>
+        <p class="section-subtitle">Core competencies across low-level hardware, graphics, and cloud systems.</p>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3 class="skill-heading">Programming Languages</h3>
+          <ul class="skill-tags">
+            <li>C / C++</li>
+            <li>Embedded C</li>
+            <li>Python</li>
+            <li>Rust</li>
+            <li>C#</li>
+            <li>GLSL</li>
+            <li>Java</li>
+            <li>JavaScript</li>
+            <li>MATLAB</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <h3 class="skill-heading">Embedded & Systems</h3>
+          <ul class="skill-tags">
+            <li>SPI / I2C / UART</li>
+            <li>Bare-Metal MCU</li>
+            <li>Interrupt Firmware</li>
+            <li>Sensor Fusion</li>
+            <li>GPIO Controls</li>
+            <li>FreeRTOS Concepts</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <h3 class="skill-heading">GPU & Scientific Computing</h3>
+          <ul class="skill-tags">
+            <li>CUDA</li>
+            <li>OpenCV</li>
+            <li>PyTorch</li>
+            <li>TensorFlow</li>
+            <li>OpenGL</li>
+            <li>Vulkan</li>
+            <li>Image Processing</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <h3 class="skill-heading">Cloud & Infrastructure</h3>
+          <ul class="skill-tags">
+            <li>AWS (EC2, S3, ECR)</li>
+            <li>Google Cloud Engine</li>
+            <li>Azure Apps</li>
+            <li>Docker Containers</li>
+            <li>RunPod GPU</li>
+            <li>FastAPI</li>
+            <li>Git / Linux Toolchain</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="about" class="section">
+      <div class="section-header">
+        <h2 class="section-title">Education & Background</h2>
+      </div>
+      <div class="card education-card">
+        <div class="edu-main">
+          <div>
+            <h3 class="edu-degree">Bachelor of Science in Computer Engineering & Science</h3>
+            <p class="edu-school">University of California, Davis • Expected Graduation: June 2027</p>
+          </div>
+          <div class="edu-gpa">
+            <span class="gpa-num">3.46</span>
+            <span class="gpa-label">UC Cumulative GPA</span>
+          </div>
+        </div>
+        <div class="edu-courses">
+          <span class="courses-title">Upper-Division Coursework:</span>
+          <div class="tech-stack">
+            <span class="tech-badge">Operating Systems (ECS 150) — A+</span>
+            <span class="tech-badge">Computer Architecture (ECS 154A/B) — A</span>
+            <span class="tech-badge">Embedded Systems (EEC 172) — A-</span>
+            <span class="tech-badge">Theory of Computation (ECS 120) — A</span>
+            <span class="tech-badge">Algorithm Design (ECS 122A) — A</span>
+            <span class="tech-badge">Machine Programming (ECS 50) — A</span>
+            <span class="tech-badge">Computer Vision (ECS 174)</span>
+            <span class="tech-badge">Gameplay Programming (ECS 179)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+]    <section id="contact" class="section">
+      <div class="contact-card">
+        <h2>Get In Touch</h2>
+        <p>I am actively seeking early career opportunities and winter/spring internships in Systems Engineering, Embedded Firmware, MLOps, and Graphics Programming.</p>
+        <div class="contact-methods">
+          <a href="mailto:scgreene@ucdavis.edu" class="btn btn-primary">scgreene@ucdavis.edu</a>
+          <a href="https://github.com/samuel-greene" target="_blank" rel="noopener" class="btn btn-secondary">github.com/samuel-greene</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <p>2026 Samuel Greene | UC Davis Computer Science & Engineering</p>
+      <p class="footer-note">HTML CSS JavaScript</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
