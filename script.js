@@ -1,10 +1,10 @@
 /**
- * Samuel Greene - Portfolio Interactive Scripts
+ * Samuel Greene — Personal Project Portfolio Scripts
  */
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // 1. Copy Email functionality
+  // 1. Email Clipboard Copy
   const copyBtn = document.getElementById('copy-email-btn');
   const copyBtnText = document.getElementById('copy-btn-text');
 
@@ -14,37 +14,54 @@ document.addEventListener('DOMContentLoaded', () => {
       
       navigator.clipboard.writeText(email).then(() => {
         const originalText = copyBtnText.textContent;
-        copyBtnText.textContent = 'Copied to Clipboard!';
-        copyBtn.style.backgroundColor = '#2ea043';
+        copyBtnText.textContent = 'Copied to clipboard!';
+        copyBtn.style.borderColor = '#3fb950';
 
         setTimeout(() => {
           copyBtnText.textContent = originalText;
-          copyBtn.style.backgroundColor = '';
-        }, 2200);
+          copyBtn.style.borderColor = '';
+        }, 2000);
       }).catch(err => {
-        console.error('Failed to copy text: ', err);
+        console.error('Copy failed:', err);
       });
     });
   }
 
-  // 2. Project Filter functionality
+  // 2. Architecture Spec Drawer Toggles
+  const toggleBtns = document.querySelectorAll('.toggle-architecture-btn');
+
+  toggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.getAttribute('data-target');
+      const drawer = document.getElementById(targetId);
+      const textSpan = btn.querySelector('.toggle-text');
+
+      if (drawer) {
+        drawer.classList.toggle('open');
+        const isOpen = drawer.classList.contains('open');
+        
+        if (textSpan) {
+          textSpan.textContent = isOpen ? 'Hide Architecture Spec' : 'View Architecture Spec';
+        }
+      }
+    });
+  });
+
+  // 3. Category Filter for Projects
   const filterBtns = document.querySelectorAll('.filter-btn');
   const projectCards = document.querySelectorAll('.project-card');
 
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      // Remove active class from all buttons
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
-      const filterValue = btn.getAttribute('data-filter');
+      const filter = btn.getAttribute('data-filter');
 
       projectCards.forEach(card => {
-        const categories = card.getAttribute('data-category');
-        
-        if (filterValue === 'all' || categories.includes(filterValue)) {
+        const category = card.getAttribute('data-category');
+        if (filter === 'all' || category === filter) {
           card.style.display = 'flex';
-          card.style.animation = 'fadeIn 0.3s ease forwards';
         } else {
           card.style.display = 'none';
         }
@@ -52,27 +69,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 3. Highlight current section in Nav on Scroll
-  const sections = document.querySelectorAll('section');
-  const navLinks = document.querySelectorAll('.nav-link');
+  // 4. Resume Modal Logic
+  const openResumeBtn = document.getElementById('open-resume-btn');
+  const closeResumeBtn = document.getElementById('close-resume-btn');
+  const modal = document.getElementById('resume-modal');
 
-  window.addEventListener('scroll', () => {
-    let current = '';
+  const openModal = () => modal && modal.classList.add('active');
+  const closeModal = () => modal && modal.classList.remove('active');
 
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.clientHeight;
-      if (pageYOffset >= (sectionTop - 120)) {
-        current = section.getAttribute('id');
-      }
-    });
+  if (openResumeBtn) openResumeBtn.addEventListener('click', openModal);
+  if (closeResumeBtn) closeResumeBtn.addEventListener('click', closeModal);
 
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === `#${current}`) {
-        link.classList.add('active');
-      }
-    });
+  // Close modal when clicking dark backdrop or pressing Escape
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+      closeModal();
+    }
   });
 
 });
