@@ -1,38 +1,40 @@
 /* ==========================================================================
-   Samuel Greene — Craftsman Theme (Dark / Pastel Yellow & Orange / No Glows)
+   Samuel Greene — Light Theme (Pastel Yellow & Orange / Strict Left Align)
    ========================================================================== */
 
 :root {
-  /* Warm Charcoal Dark Theme */
-  --bg-dark: #141413;
-  --bg-card: #1c1b18;
-  --bg-code: #100f0e;
-  --border-color: #33302a;
-  --border-highlight: #524d43;
+  /* Light Warm Canvas */
+  --bg-main: #fcfbf7;
+  --bg-card: #ffffff;
+  --bg-subtle: #f5f2ea;
+  --border-color: #e6e0d3;
+  --border-highlight: #c7bea8;
   
   /* Text */
-  --text-bright: #f5eedc;
-  --text-main: #cfc7b4;
-  --text-muted: #8c8577;
+  --text-bright: #1c1a17;
+  --text-main: #38342e;
+  --text-muted: #787163;
   
-  /* Accent Colors (Pastel Yellows & Oranges, Zero Blue) */
-  --pastel-yellow: #f6d887;
-  --pastel-orange: #f2aa72;
-  --pastel-amber: #e5be6b;
+  /* Warm Pastel Highlights & Accents */
+  --pastel-yellow: #fef0c7;
+  --pastel-orange: #ffe4d6;
+  --accent-gold: #c48200;
+  --accent-orange: #d96b27;
+  --accent-gray: #414141;
   
-  /* Single Uniform Typeface */
+  /* Universal Font */
   --font-mono: 'JetBrains Mono', Consolas, monospace;
   
-  --max-width: 900px;
+  --max-width: 1200px;
   --radius: 3px;
 }
 
-/* Global Reset & Strict Uniform Font */
+/* Global Reset & Strict Universal Typography */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  /* Disable all blur, glow, and fade effects */
+  /* Zero glow, zero blur, zero animations */
   box-shadow: none !important;
   text-shadow: none !important;
   backdrop-filter: none !important;
@@ -41,16 +43,18 @@
 }
 
 html {
-  scroll-behavior: auto; /* Instant jumps, no scrolling transition */
-  background-color: var(--bg-dark);
+  scroll-behavior: auto;
+  background-color: var(--bg-main);
   color: var(--text-main);
   font-family: var(--font-mono);
   font-size: 15px;
   line-height: 1.6;
+  text-align: left;
 }
 
 body, button, input, select, textarea, code, pre {
   font-family: var(--font-mono);
+  text-align: left;
 }
 
 /* Navigation */
@@ -58,7 +62,7 @@ body, button, input, select, textarea, code, pre {
   position: sticky;
   top: 0;
   z-index: 90;
-  background-color: var(--bg-dark);
+  background-color: var(--bg-main);
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -73,14 +77,8 @@ body, button, input, select, textarea, code, pre {
 
 .nav-brand {
   text-decoration: none;
-  font-size: 0.95rem;
-}
-
-.prompt-user {
-  color: var(--pastel-yellow);
-}
-
-.prompt-symbol {
+  font-size: 1rem;
+  font-weight: 700;
   color: var(--text-bright);
 }
 
@@ -97,33 +95,39 @@ body, button, input, select, textarea, code, pre {
 }
 
 .nav-link:hover {
-  color: var(--pastel-yellow);
+  color: var(--accent-orange);
 }
 
 .nav-btn {
-  background: transparent;
-  color: var(--pastel-yellow);
+  background: var(--pastel-yellow);
+  color: var(--accent-gold);
   border: 1px solid var(--border-highlight);
   padding: 0.25rem 0.6rem;
   font-size: 0.8rem;
   border-radius: var(--radius);
   cursor: pointer;
+  font-weight: 600;
 }
 
 .nav-btn:hover {
-  background: var(--bg-card);
-  border-color: var(--pastel-yellow);
+  background: var(--pastel-orange);
+  color: var(--accent-orange);
+}
+
+h1, h2, h3, [id] {
+  scroll-margin-top: 70px; /* Replace 80px with your top bar's exact height */
 }
 
 /* Main Layout */
 .main-content {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 2rem 1.2rem;
+  padding: 2.5rem 1.2rem;
 }
 
 .section {
   margin-bottom: 4rem;
+  text-align: left;
 }
 
 /* Section Titles */
@@ -141,7 +145,7 @@ body, button, input, select, textarea, code, pre {
 }
 
 .section-title span {
-  color: var(--pastel-yellow);
+  color: var(--accent-gold);
 }
 
 .section-line {
@@ -150,77 +154,39 @@ body, button, input, select, textarea, code, pre {
   background-color: var(--border-color);
 }
 
-/* Hero Section / Terminal Card */
-.terminal-window {
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius);
-  margin-bottom: 3rem;
-}
-
-.terminal-bar {
-  background-color: #171614;
-  padding: 0.4rem 0.8rem;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  border-bottom: 1px solid var(--border-color);
-}
-
-.dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-}
-.dot-yellow { background-color: var(--pastel-yellow); }
-.dot-orange { background-color: var(--pastel-orange); }
-.dot-muted { background-color: var(--border-highlight); }
-
-.terminal-title {
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  margin-left: 0.4rem;
-}
-
-.terminal-body {
-  padding: 1.5rem;
-}
-
-.cli-line {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  margin-bottom: 0.5rem;
-}
-
-.cli-prompt {
-  color: var(--pastel-yellow);
-  margin-right: 0.4rem;
+/* Hero Intro Section (Clean Light Layout) */
+.hero-section {
+  margin-bottom: 3.5rem;
+  text-align: left;
 }
 
 .hero-title {
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   color: var(--text-bright);
   font-weight: 700;
   letter-spacing: -0.02em;
+  margin-bottom: 0.2rem;
 }
 
 .hero-subtitle {
-  color: var(--pastel-orange);
-  font-size: 0.88rem;
-  margin-bottom: 1rem;
+  color: var(--accent-orange);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
 }
 
 .hero-text {
   color: var(--text-main);
-  font-size: 0.95rem;
-  max-width: 750px;
+  font-size: 0.98rem;
+  max-width: 780px;
   margin-bottom: 1.5rem;
 }
 
-.cli-actions {
+.hero-actions {
   display: flex;
   gap: 0.8rem;
   flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 /* Buttons */
@@ -237,22 +203,23 @@ body, button, input, select, textarea, code, pre {
 }
 
 .btn-primary {
-  background-color: var(--bg-code);
+  background-color: var(--bg-card);
   color: var(--text-bright);
   border-color: var(--border-highlight);
 }
 
 .btn-primary:hover {
-  border-color: var(--pastel-yellow);
-  color: var(--pastel-yellow);
+  border-color: var(--accent-gold);
+  background-color: var(--pastel-yellow);
 }
 
 .btn-badge {
-  background-color: var(--border-color);
-  color: var(--pastel-orange);
+  background-color: var(--pastel-orange);
+  color: var(--accent-orange);
   font-size: 0.7rem;
   padding: 0.1rem 0.35rem;
   border-radius: 2px;
+  font-weight: 600;
 }
 
 .btn-secondary {
@@ -278,6 +245,7 @@ body, button, input, select, textarea, code, pre {
   border: 1px solid var(--border-color);
   padding: 1.4rem;
   border-radius: var(--radius);
+  text-align: left;
 }
 
 .research-header {
@@ -291,7 +259,8 @@ body, button, input, select, textarea, code, pre {
 
 .mono-tag {
   font-size: 0.75rem;
-  color: var(--pastel-orange);
+  color: var(--accent-orange);
+  font-weight: 600;
   text-transform: uppercase;
 }
 
@@ -308,9 +277,10 @@ body, button, input, select, textarea, code, pre {
 .toggle-architecture-btn {
   background: none;
   border: none;
-  color: var(--pastel-yellow);
+  color: var(--accent-gold);
   font-size: 0.8rem;
   cursor: pointer;
+  font-weight: 600;
 }
 
 .toggle-architecture-btn:hover {
@@ -326,13 +296,14 @@ body, button, input, select, textarea, code, pre {
   padding-left: 1.2rem;
   margin-bottom: 1rem;
   font-size: 0.88rem;
+  text-align: left;
 }
 
 .bullet-list li {
   margin-bottom: 0.35rem;
 }
 
-/* Architecture Drawer (Instant Toggle, No Fades) */
+/* Architecture Drawer */
 .architecture-drawer {
   display: none;
 }
@@ -342,16 +313,17 @@ body, button, input, select, textarea, code, pre {
 }
 
 .code-block {
-  background-color: var(--bg-code);
+  background-color: var(--bg-subtle);
   border: 1px solid var(--border-color);
   padding: 1rem;
   border-radius: var(--radius);
   margin: 0.8rem 0;
+  text-align: left;
 }
 
 .code-block pre {
   font-size: 0.8rem;
-  color: var(--pastel-yellow);
+  color: var(--text-bright);
   overflow-x: auto;
 }
 
@@ -367,15 +339,17 @@ body, button, input, select, textarea, code, pre {
   flex-wrap: wrap;
   gap: 0.4rem;
   margin-top: 0.6rem;
+  justify-content: flex-start;
 }
 
 .tech-pill {
   font-size: 0.72rem;
-  background-color: var(--bg-code);
-  color: var(--text-muted);
+  background-color: var(--pastel-yellow);
+  color: var(--accent-gold);
   border: 1px solid var(--border-color);
   padding: 0.15rem 0.45rem;
   border-radius: 2px;
+  font-weight: 600;
 }
 
 /* Projects Section */
@@ -384,6 +358,7 @@ body, button, input, select, textarea, code, pre {
   align-items: center;
   gap: 0.8rem;
   margin-bottom: 1.2rem;
+  justify-content: flex-start;
 }
 
 .filter-label {
@@ -397,7 +372,7 @@ body, button, input, select, textarea, code, pre {
 }
 
 .filter-btn {
-  background: transparent;
+  background: var(--bg-card);
   color: var(--text-muted);
   border: 1px solid var(--border-color);
   padding: 0.2rem 0.5rem;
@@ -406,10 +381,19 @@ body, button, input, select, textarea, code, pre {
   cursor: pointer;
 }
 
+.filter-btn.special {
+  color: var(--accent-gray);
+  border-color: var(--accent-gray);
+  background-color: var(--pastel-gray);
+  border: 1px solid var(--accent-gray);
+  font-weight: 600;
+}
+
 .filter-btn.active, .filter-btn:hover {
-  color: var(--pastel-yellow);
-  border-color: var(--pastel-yellow);
-  background-color: var(--bg-card);
+  color: var(--accent-orange);
+  border-color: var(--accent-orange);
+  background-color: var(--pastel-orange);
+  font-weight: 600;
 }
 
 .projects-grid {
@@ -426,6 +410,7 @@ body, button, input, select, textarea, code, pre {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  text-align: left;
 }
 
 .project-card:hover {
@@ -448,10 +433,47 @@ body, button, input, select, textarea, code, pre {
   font-size: 0.82rem;
   color: var(--text-muted);
   margin-bottom: 1rem;
+  text-align: left;
 }
 
 .project-bullets li {
   margin-bottom: 0.3rem;
+}
+
+/* Projects Expand/Collapse Button */
+.projects-toggle-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.projects-toggle-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #a0aec0;
+  padding: 0.6rem 1.25rem;
+  border-radius: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.projects-toggle-btn:hover {
+  border-color: var(--accent-orange);
+  color: var(--accent-orange);
+  background: rgba(255, 206, 100, 0.05);
+}
+
+.projects-toggle-btn .toggle-icon {
+  transition: transform 0.3s ease;
+}
+
+.projects-toggle-btn.expanded .toggle-icon {
+  transform: rotate(180deg);
 }
 
 /* Technical Stack Box */
@@ -463,10 +485,11 @@ body, button, input, select, textarea, code, pre {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.2rem;
+  text-align: left;
 }
 
 .stack-heading {
-  color: var(--pastel-orange);
+  color: var(--accent-orange);
   font-size: 0.82rem;
   margin-bottom: 0.4rem;
 }
@@ -482,6 +505,7 @@ body, button, input, select, textarea, code, pre {
   border: 1px solid var(--border-color);
   padding: 1.4rem;
   border-radius: var(--radius);
+  text-align: left;
 }
 
 .edu-header {
@@ -504,16 +528,16 @@ body, button, input, select, textarea, code, pre {
 }
 
 .gpa-box {
-  background-color: var(--bg-code);
-  border: 1px solid var(--border-highlight);
+  background-color: var(--pastel-yellow);
+  border: 1px solid var(--border-color);
   padding: 0.3rem 0.6rem;
   border-radius: var(--radius);
-  text-align: right;
+  text-align: left;
 }
 
 .gpa-val {
   display: block;
-  color: var(--pastel-yellow);
+  color: var(--accent-gold);
   font-weight: 700;
   font-size: 0.95rem;
 }
@@ -531,13 +555,13 @@ body, button, input, select, textarea, code, pre {
 
 .courses-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 0.5rem;
 }
 
 .course-item {
   font-size: 0.78rem;
-  background-color: var(--bg-code);
+  background-color: var(--bg-subtle);
   border: 1px solid var(--border-color);
   padding: 0.4rem 0.6rem;
   border-radius: 2px;
@@ -546,10 +570,10 @@ body, button, input, select, textarea, code, pre {
 }
 
 .course-item strong {
-  color: var(--pastel-yellow);
+  color: var(--accent-gold);
 }
 
-/* Resume Modal (Instant Toggle) */
+/* Resume Modal */
 .modal-backdrop {
   display: none;
   position: fixed;
@@ -557,7 +581,7 @@ body, button, input, select, textarea, code, pre {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(10, 10, 9, 0.85);
+  background-color: rgba(28, 26, 23, 0.6);
   z-index: 200;
   justify-content: center;
   align-items: center;
@@ -575,10 +599,11 @@ body, button, input, select, textarea, code, pre {
   width: 100%;
   max-width: 650px;
   overflow: hidden;
+  text-align: left;
 }
 
 .modal-header {
-  background-color: #171614;
+  background-color: var(--bg-subtle);
   padding: 0.6rem 1rem;
   display: flex;
   justify-content: space-between;
@@ -588,7 +613,8 @@ body, button, input, select, textarea, code, pre {
 
 .modal-title {
   font-size: 0.82rem;
-  color: var(--pastel-yellow);
+  color: var(--text-bright);
+  font-weight: 600;
 }
 
 .modal-close {
@@ -605,9 +631,10 @@ body, button, input, select, textarea, code, pre {
 
 .modal-body {
   padding: 1rem;
-  background-color: var(--bg-code);
+  background-color: var(--bg-main);
   max-height: 400px;
   overflow-y: auto;
+  text-align: left;
 }
 
 .modal-body pre code {
@@ -621,26 +648,31 @@ body, button, input, select, textarea, code, pre {
   font-size: 0.75rem;
   color: var(--text-muted);
   border-top: 1px solid var(--border-color);
+  text-align: left;
 }
 
 /* Footer */
 .footer {
   border-top: 1px solid var(--border-color);
   padding: 1.5rem 0;
-  text-align: center;
+  text-align: left;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
   font-size: 0.78rem;
   color: var(--text-muted);
 }
 
 .footer a {
-  color: var(--pastel-yellow);
+  color: var(--accent-orange);
   text-decoration: none;
 }
 
 /* Responsive Rules */
 @media (max-width: 600px) {
   .hero-title {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
   }
   .nav-links {
     gap: 0.5rem;

@@ -1,6 +1,6 @@
 /**
- * Samuel Greene — Personal Project Portfolio Scripts
- * Instant toggles, flat interactions, zero animation delay.
+ * Samuel Greene — Portfolio Scripts
+ * Handles instant toggles, clipboard copying, filtering, and modal dialogs.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
       navigator.clipboard.writeText(email).then(() => {
         const originalText = copyBtnText.textContent;
         copyBtnText.textContent = 'Copied to clipboard!';
-        copyBtn.style.borderColor = '#f6d887';
+        copyBtn.style.borderColor = '#c48200';
 
         setTimeout(() => {
           copyBtnText.textContent = originalText;
@@ -28,27 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 2. Architecture Spec Drawer Toggles
-  const toggleBtns = document.querySelectorAll('.toggle-architecture-btn');
-
-  toggleBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const targetId = btn.getAttribute('data-target');
-      const drawer = document.getElementById(targetId);
-      const textSpan = btn.querySelector('.toggle-text');
-
-      if (drawer) {
-        drawer.classList.toggle('open');
-        const isOpen = drawer.classList.contains('open');
-        
-        if (textSpan) {
-          textSpan.textContent = isOpen ? 'Hide Architecture Spec' : 'View Architecture Spec';
-        }
-      }
-    });
-  });
-
-  // 3. Category Filter for Projects
+  // 2. Category Filter for Projects
   const filterBtns = document.querySelectorAll('.filter-btn');
   const projectCards = document.querySelectorAll('.project-card');
 
@@ -70,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 4. Resume Modal Logic
+  // 3. Resume Modal Logic
   const openResumeBtn = document.getElementById('open-resume-btn');
   const closeResumeBtn = document.getElementById('close-resume-btn');
   const modal = document.getElementById('resume-modal');
@@ -81,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (openResumeBtn) openResumeBtn.addEventListener('click', openModal);
   if (closeResumeBtn) closeResumeBtn.addEventListener('click', closeModal);
 
-  // Close modal when clicking dark backdrop or pressing Escape
+  // Close modal when clicking backdrop or pressing Escape
   window.addEventListener('click', (e) => {
     if (e.target === modal) closeModal();
   });
@@ -92,4 +72,76 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('.project-card');
+  const toggleBtn = document.getElementById('projects-toggle-btn');
+  const toggleText = toggleBtn ? toggleBtn.querySelector('.toggle-text') : null;
+
+  let currentFilter = 'all';
+  let isExpanded = false;
+  const INITIAL_LIMIT = 4;
+
+  function renderProjects() {
+    // 1. Get cards matching current tag filter
+    const matchingCards = Array.from(projectCards).filter(card => {
+      const category = card.getAttribute('data-category');
+      return currentFilter === 'all' || category === currentFilter;
+    });
+
+    // 2. Hide all cards first
+    projectCards.forEach(card => {
+      card.style.display = 'none';
+    });
+
+    // 3. Render cards matching filter state and limit
+    matchingCards.forEach((card, index) => {
+      if (isExpanded || index < INITIAL_LIMIT) {
+        card.style.display = 'flex'; // Or 'block' depending on grid layout
+      }
+    });
+
+    // 4. Toggle button visibility based on whether total filtered items > 4
+    if (toggleBtn) {
+      if (matchingCards.length > INITIAL_LIMIT) {
+        toggleBtn.style.display = 'inline-flex';
+        
+        if (isExpanded) {
+          if (toggleText) toggleText.textContent = 'Show Less';
+          toggleBtn.classList.add('expanded');
+        } else {
+          const remaining = matchingCards.length - INITIAL_LIMIT;
+          if (toggleText) toggleText.textContent = `Show More (${remaining} more)`;
+          toggleBtn.classList.remove('expanded');
+        }
+      } else {
+        toggleBtn.style.display = 'none';
+      }
+    }
+  }
+
+  // Filter button click event
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentFilter = btn.getAttribute('data-filter');
+      // Reset expansion on filter switch
+      isExpanded = false;
+      renderProjects();
+    });
+  });
+
+  // Toggle expand/collapse click event
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+      isExpanded = !isExpanded;
+      renderProjects();
+    });
+  }
+
+  // Initial render
+  renderProjects();
 });
