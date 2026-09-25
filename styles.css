@@ -57,6 +57,10 @@ body, button, input, select, textarea, code, pre {
   text-align: left;
 }
 
+h1, h2, h3, [id] {
+  scroll-margin-top: 70px; /* Replace 80px with your top bar's exact height */
+}
+
 /* Navigation */
 .navbar {
   position: sticky;
@@ -114,8 +118,10 @@ body, button, input, select, textarea, code, pre {
   color: var(--accent-orange);
 }
 
-h1, h2, h3, [id] {
-  scroll-margin-top: 70px; /* Replace 80px with your top bar's exact height */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
 }
 
 /* Main Layout */
@@ -156,8 +162,28 @@ h1, h2, h3, [id] {
 
 /* Hero Intro Section (Clean Light Layout) */
 .hero-section {
-  margin-bottom: 3.5rem;
-  text-align: left;
+  margin-bottom: 50px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.hero-content {
+  flex: 1;
+}
+
+.hero-picture {
+  flex-shrink: 0;
+  width: 256px;
+}
+
+.hero-picture img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-color);
+  display: block;
 }
 
 .hero-title {
