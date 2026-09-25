@@ -1,5 +1,6 @@
 /**
  * Samuel Greene — Personal Project Portfolio Scripts
+ * Instant toggles, flat interactions, zero animation delay.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -15,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
       navigator.clipboard.writeText(email).then(() => {
         const originalText = copyBtnText.textContent;
         copyBtnText.textContent = 'Copied to clipboard!';
-        copyBtn.style.borderColor = '#3fb950';
+        copyBtn.style.borderColor = '#f6d887';
 
         setTimeout(() => {
           copyBtnText.textContent = originalText;
