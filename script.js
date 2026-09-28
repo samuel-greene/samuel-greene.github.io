@@ -50,28 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 3. Resume Modal Logic
-  const openResumeBtn = document.getElementById('open-resume-btn');
-  const closeResumeBtn = document.getElementById('close-resume-btn');
-  const modal = document.getElementById('resume-modal');
-
-  const openModal = () => modal && modal.classList.add('active');
-  const closeModal = () => modal && modal.classList.remove('active');
-
-  if (openResumeBtn) openResumeBtn.addEventListener('click', openModal);
-  if (closeResumeBtn) closeResumeBtn.addEventListener('click', closeModal);
-
-  // Close modal when clicking backdrop or pressing Escape
-  window.addEventListener('click', (e) => {
-    if (e.target === modal) closeModal();
-  });
-
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
-      closeModal();
-    }
-  });
-
 });
 
 document.addEventListener('DOMContentLoaded', () => {
