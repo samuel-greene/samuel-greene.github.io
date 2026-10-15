@@ -466,6 +466,20 @@ h1, h2, h3, [id] {
   margin-bottom: 0.3rem;
 }
 
+.project-link {
+  align-self: flex-start;
+  color: var(--accent-orange);
+  font-size: 0.78rem;
+  font-weight: 600;
+  margin-top: auto;
+  text-decoration: none;
+}
+
+.project-link:hover {
+  color: var(--accent-gold);
+  text-decoration: underline;
+}
+
 /* Projects Expand/Collapse Button */
 .projects-toggle-wrapper {
   display: flex;

@@ -6,12 +6,13 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   // 1. Email Clipboard Copy
-  const copyBtn = document.getElementById('copy-email-btn');
-  const copyBtnText = document.getElementById('copy-btn-text');
+  const copyBtns = document.querySelectorAll('.copy-email-btn');
 
-  if (copyBtn && copyBtnText) {
+  copyBtns.forEach((copyBtn) => {
     copyBtn.addEventListener('click', () => {
       const email = copyBtn.getAttribute('data-email');
+      const copyBtnText = copyBtn.querySelector('span:first-child');
+      if (!copyBtnText) return;
       
       navigator.clipboard.writeText(email).then(() => {
         const originalText = copyBtnText.textContent;
@@ -26,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Copy failed:', err);
       });
     });
-  }
+  });
 
   // 2. Category Filter for Projects
   const filterBtns = document.querySelectorAll('.filter-btn');

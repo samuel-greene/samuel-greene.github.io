@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Samuel Greene — Systems & Low-Level Engineer</title>
+  <title>Samuel Greene — Systems Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -20,7 +20,7 @@
         <a href="https://linkedin.com/in/samuel-greene-b41443406" target="_blank" rel="noopener" class="nav-link">LinkedIn</a>
       </div>
       <nav class="nav-links">
-        <a href="#research" class="nav-link">Research</a>
+        <a href="#research" class="nav-link">Experience</a>
         <a href="#projects" class="nav-link">Projects</a>
         <a href="#skills" class="nav-link">Stack</a>
         <a href="#education" class="nav-link">Edu</a>
@@ -35,18 +35,18 @@
     <section id="hero" class="hero-section">
       <div class="hero-content">
         <h1 class="hero-title">Samuel Greene</h1>
-        <p class="hero-subtitle">Computer Science & Engineering @ UC Davis (Senior)</p>
+        <p class="hero-subtitle">Computer Engineering & Science @ UC Davis</p>
         <p class="hero-text">
-          Specializing in low-level C/C++ firmware, CUDA/GPU pipeline design, and high-throughput cloud infrastructure. Currently building GPU-accelerated medical imaging pipelines for UC Davis and the University of Washington.
+          Systems engineer building cloud-backed microscopy workflows, from GPU image-processing pipelines to browser-based research tools. Experience spans embedded systems, CUDA-enabled imaging, and AWS-to-Azure platform migration.
         </p>
 
         <div class="hero-actions">
-          <button id="copy-student-email-btn" class="btn btn-primary" data-email="scgreene@ucdavis.edu">
-            <span id="copy-btn-text">scgreene@ucdavis.edu</span>
+          <button class="btn btn-primary copy-email-btn" data-email="scgreene@ucdavis.edu">
+            <span>scgreene@ucdavis.edu</span>
             <span class="btn-badge">copy</span>
           </button>
-          <button id="copy-personal-email-btn" class="btn btn-primary" data-email="samcfgreene@gmail.com">
-            <span id="copy-btn-text">samcfgreene@gmail.com</span>
+          <button class="btn btn-primary copy-email-btn" data-email="samcfgreene@gmail.com">
+            <span>samcfgreene@gmail.com</span>
             <span class="btn-badge">copy</span>
           </button>
           <!-- <a href="https://github.com/samuel-greene" target="_blank" rel="noopener" class="btn btn-secondary">github.com/samuel-greene</a> -->
@@ -71,31 +71,32 @@
         <article class="research-item">
           <div class="research-header">
             <div>
-              <span class="mono-tag">Cloud & GPU Infrastructure</span>
-              <h3 class="item-title">CoreView Project — Lead Systems Engineer</h3>
-              <p class="item-meta">UC Davis / University of Washington * June 2026 - Present</p>
+              <span class="mono-tag">AWS & Azure Cloud Infrastructure</span>
+              <h3 class="item-title">CoreView Project — Systems Engineer</h3>
+              <p class="item-meta">University of Washington * June 2026 - Present</p>
             </div>
           </div>
 
           <p class="item-summary">
-            Architected GPU-based computational pipelines to process microscopy datasets across university research teams. Reduced image processing cycle times from 2–3 days down to 15–30 minutes.
+            Building cloud-backed imaging workflows for researchers: a web workspace for high-resolution scans, GPU-service job submission, and a searchable image catalog.
           </p>
 
           <ul class="bullet-list">
-            <li>Designed GPU-accelerated pipelines using AWS (EC2, S3, SNS, IAM, ECR), GCP, and RunPod compute instances.</li>
-            <li>Built concurrent data-ingestion modules connecting Google Drive and S3 for automated research dataset syncs.</li>
-            <li>Containerized PyTorch, TensorFlow, and CUDA-accelerated OpenCV inference workloads inside Docker.</li>
-            <li>Built a full-stack microscopy viewer using HTML/JS with a Python/FastAPI backend hosted on Azure Container Apps.</li>
+            <li>Built a <strong>FastAPI</strong> and <strong>OpenSeadragon</strong> workspace for browsing high-resolution TIFF and OME-TIFF scans without downloading full-resolution images.</li>
+            <li>Implemented on-demand Deep Zoom tile generation with <strong>libvips</strong>, TIFF-pyramid discovery, and region-only reads for efficient JPEG delivery.</li>
+            <li>Contributed to the team's pre-Azure AWS deployment using <strong>EC2</strong>, <strong>IAM</strong>, and <strong>Lambda</strong> for compute, access control, and event-driven workflow needs.</li>
+            <li>Designed the Azure migration architecture: a <strong>PostgreSQL</strong>-backed catalog and Azure Container Apps deployment with Azure Files, Docker, metadata indexing, search, and role-controlled workflows.</li>
           </ul>
 
           <div class="tech-row">
-            <span class="tech-pill">AWS</span>
-            <span class="tech-pill">GCP</span>
-            <span class="tech-pill">RunPod</span>
-            <span class="tech-pill">CUDA</span>
+            <span class="tech-pill">AWS EC2</span>
+            <span class="tech-pill">AWS IAM</span>
+            <span class="tech-pill">AWS Lambda</span>
+            <span class="tech-pill">Azure Container Apps</span>
+            <span class="tech-pill">Azure Files</span>
             <span class="tech-pill">Docker</span>
-            <span class="tech-pill">PyTorch</span>
             <span class="tech-pill">FastAPI</span>
+            <span class="tech-pill">PostgreSQL</span>
           </div>
         </article>
 
@@ -151,19 +152,20 @@
       </div>
 
       <div class="projects-grid">
-        <!-- OLED GPS Telemetry & Diagnostic Display -->
+        <!-- Pathfinder -->
         <div class="project-card" data-category="embedded">
           <div class="project-header">
-            <span class="mono-tag">C++ & Arduino</span>
-            <h3 class="project-title">OLED GPS Telemetry & Diagnostic Display</h3>
+            <span class="mono-tag">ESP32 & Embedded C++</span>
+            <h3 class="project-title">Pathfinder — Hiking GPS Telemetry</h3>
           </div>
           <p class="project-desc">
-            Real-time telemetry interface built for SSD1306 OLED displays, parsing live NMEA data streams from serial GPS hardware modules.
+            A battery-powered hiking navigator that continuously turns raw GPS data into readable on-device navigation and telemetry state.
           </p>
           <ul class="project-bullets">
-            <li>Engineered a non-blocking <code>millis()</code> execution loop for real-time NMEA encoding (TinyGPS++) and 4Hz UI redraws.</li>
-            <li>Implemented formatted coordinate tracking (N/S/E/W), UTC timestamp decoding, lock-age indicators, and a 2s diagnostic debug monitor.</li>
+            <li>Built ESP32 firmware that parses NMEA data over UART and renders navigation state to an I2C OLED without blocking GPS ingestion.</li>
+            <li>Designed a cooperative <code>millis()</code> scheduler for 4 Hz refreshes, GPS-health diagnostics, rotating telemetry screens, and stale-fix handling.</li>
           </ul>
+          <a class="project-link" href="https://github.com/samuel-greene/Pathfinder" target="_blank" rel="noopener">View source on GitHub <span aria-hidden="true">↗</span></a>
           <div class="tech-row">
             <span class="tech-pill">C++ / Arduino</span>
             <span class="tech-pill">SSD1306 OLED</span>
@@ -212,6 +214,7 @@
             <span class="tech-pill">GLSL</span>
             <span class="tech-pill">Graphics</span>
           </div>
+          <a class="project-link" href="https://github.com/sammgreene/knights_edge" target="_blank" rel="noopener">View source on GitHub <span aria-hidden="true">↗</span></a>
         </div>
 
         <!-- Custom Dark Walnut Keychron K2 Case -->
@@ -254,13 +257,14 @@
             <span class="tech-pill">GLSL</span>
             <span class="tech-pill">Graphics</span>
           </div>
+          <a class="project-link" href="https://github.com/IceTap/blithaven" target="_blank" rel="noopener">View source on GitHub <span aria-hidden="true">↗</span></a>
         </div>
 
-        <!-- Tokenizer & Lexer -->
+        <!-- SAMLANG Language Toolchain -->
         <div class="project-card" data-category="compilers">
           <div class="project-header">
             <span class="mono-tag">C++ & Theory</span>
-            <h3 class="project-title">Language Tokenizer & Lexer</h3>
+            <h3 class="project-title">SAMLANG Language Toolchain</h3>
           </div>
           <p class="project-desc">
             A lexer and token parsing system built for a custom programming language, based on formal Theory of Computation fundamentals.
@@ -275,6 +279,7 @@
             <span class="tech-pill">Pratt Parsing</span>
             <span class="tech-pill">Make</span>
           </div>
+          <a class="project-link" href="https://github.com/IceTap/SAMLANG" target="_blank" rel="noopener">View source on GitHub <span aria-hidden="true">↗</span></a>
         </div>
       </div>
 
@@ -311,7 +316,7 @@
         </div>
         <div class="stack-column">
           <h4 class="stack-heading">Cloud & Infrastructure</h4>
-          <p>AWS (EC2/S3/ECR), GCP, Azure, RunPod, Docker, FastAPI, Linux/Unix</p>
+          <p>AWS (EC2, IAM, Lambda), Azure (Container Apps, Files), Docker, FastAPI, PostgreSQL, Linux/Unix</p>
         </div>
       </div>
     </section>
@@ -363,19 +368,19 @@ UC Davis | BS Computer Engineering & Science (Expected June 2027)
 ===================================================================
 
 RESEARCH:
-• CoreView (UC Davis / UW): Lead Systems Engineer (2026 - Present)
-  - Managed AWS/GCP/RunPod GPU cluster infrastructure.
-  - Reduced processing latency from 2-3 days to 15-30 minutes.
+• CoreView (University of Washington): Systems Engineer (2026 - Present)
+  - Supported AWS infrastructure using EC2, IAM, and Lambda before the Azure migration.
+  - Built FastAPI/OpenSeadragon imaging workflows on Azure Container Apps.
 • UCD Medical Center (Levenson Lab): Research Programmer (2024 - 2026)
   - Built .NET/OpenCV desktop software & hardware integration tools.
 
 KEY PROJECTS:
-• Bicycle Speed HUD: Bare-metal C, sensor fusion, OLED display.
+• Pathfinder: ESP32 GPS telemetry, UART/I2C, OLED display.
 • Blithaven Engine: Rust, OpenGL rendering, custom shaders.
 • Lexer & Tokenizer: Linear-time C++ Pratt parser.
 
 CORE SKILLS:
-C/C++, Embedded C, Python, Rust, CUDA, OpenCV, Docker, AWS, GCP
+C/C++, Embedded C, Python, Rust, CUDA, OpenCV, Docker, AWS, Azure
 ===================================================================</code></pre>
       </div>
       <div class="modal-footer">
