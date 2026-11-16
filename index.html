@@ -35,9 +35,9 @@
     <section id="hero" class="hero-section">
       <div class="hero-content">
         <h1 class="hero-title">Samuel Greene</h1>
-        <p class="hero-subtitle">Computer Engineering & Science @ UC Davis</p>
+        <p class="hero-subtitle">Computer Science and Engineering @ UC Davis</p>
         <p class="hero-text">
-          Systems engineer building cloud-backed microscopy workflows, from GPU image-processing pipelines to browser-based research tools. Experience spans embedded systems, CUDA-enabled imaging, and AWS-to-Azure platform migration.
+          Systems engineer building Azure-backed microscopy workflows and embedded systems. Experience includes cloud deployment design, authentication testing, automated validation, and hardware control software.
         </p>
 
         <div class="hero-actions">
@@ -71,32 +71,31 @@
         <article class="research-item">
           <div class="research-header">
             <div>
-              <span class="mono-tag">AWS & Azure Cloud Infrastructure</span>
+              <span class="mono-tag">Azure Cloud Infrastructure & Automated Validation</span>
               <h3 class="item-title">CoreView Project — Systems Engineer</h3>
               <p class="item-meta">University of Washington * June 2026 - Present</p>
             </div>
           </div>
 
           <p class="item-summary">
-            Building cloud-backed imaging workflows for researchers: a web workspace for high-resolution scans, GPU-service job submission, and a searchable image catalog.
+            Built CoreViewer for browser-based microscopy review at UW, UC Davis, and KNUST (Ghana), avoiding full downloads of approximately 10 GB images over Wi-Fi.
           </p>
 
           <ul class="bullet-list">
-            <li>Built a <strong>FastAPI</strong> and <strong>OpenSeadragon</strong> workspace for browsing high-resolution TIFF and OME-TIFF scans without downloading full-resolution images.</li>
-            <li>Implemented on-demand Deep Zoom tile generation with <strong>libvips</strong>, TIFF-pyramid discovery, and region-only reads for efficient JPEG delivery.</li>
-            <li>Contributed to the team's pre-Azure AWS deployment using <strong>EC2</strong>, <strong>IAM</strong>, and <strong>Lambda</strong> for compute, access control, and event-driven workflow needs.</li>
-            <li>Designed the Azure migration architecture: a <strong>PostgreSQL</strong>-backed catalog and Azure Container Apps deployment with Azure Files, Docker, metadata indexing, search, and role-controlled workflows.</li>
+            <li>Designed a <strong>PostgreSQL</strong>-backed image catalog and <strong>Azure Container Apps</strong> deployment architecture using Docker, Azure Files mounts, and role-controlled workflows.</li>
+            <li>Added regression tests for <strong>authentication</strong>, image decoding, catalog curation, event replay, and retry recovery; integrated the suite into container builds and <strong>GitHub Actions</strong>.</li>
+            <li>Implemented an <strong>Azure Service Bus</strong> consumer with duplicate-safe catalog updates, exponential backoff, and dead-letter handling; acknowledged messages only after database commits.</li>
+            <li>Implemented a <strong>FastAPI/OpenSeadragon</strong> viewer using libvips pyramid-aware region reads and HTTP tile caching to transfer only requested regions of TIFF/OME-TIFF scans.</li>
           </ul>
 
           <div class="tech-row">
-            <span class="tech-pill">AWS EC2</span>
-            <span class="tech-pill">AWS IAM</span>
-            <span class="tech-pill">AWS Lambda</span>
             <span class="tech-pill">Azure Container Apps</span>
             <span class="tech-pill">Azure Files</span>
+            <span class="tech-pill">Azure Service Bus</span>
             <span class="tech-pill">Docker</span>
             <span class="tech-pill">FastAPI</span>
             <span class="tech-pill">PostgreSQL</span>
+            <span class="tech-pill">GitHub Actions</span>
           </div>
         </article>
 
@@ -115,9 +114,9 @@
           </p>
 
           <ul class="bullet-list">
-            <li>Engineered <strong>FIBI Post Processing</strong>, an in-lab desktop suite that doubled post-processing throughput.</li>
-            <li>Lead developer on <strong>Maggie</strong>, the primary .NET interface controlling interactive hardware ROI selection.</li>
-            <li>Implemented OpenCV pipelines for automated color correction, multi-image overlays, and feature detection.</li>
+            <li>Extended <strong>Maggie's C#/.NET scan sequencer</strong> to coordinate motorized stage motion, settling delays, and XIMEA camera capture for single-plane and Z-stack microscopy.</li>
+            <li>Prototyped per-tile focus estimation by interpolating Z heights from sampled focus points and wrote scan sequence tests with simulated camera, stage, lighting, and trigger adapters.</li>
+            <li>Built <strong>FIBI Post Processing</strong>, applying whole-slide color correction and scaling <strong>5.1× faster</strong> than traditional GIMP workflows through multithreaded processing of image tiles.</li>
           </ul>
 
           <div class="tech-row">
@@ -163,7 +162,8 @@
           </p>
           <ul class="project-bullets">
             <li>Built ESP32 firmware that parses NMEA data over UART and renders navigation state to an I2C OLED without blocking GPS ingestion.</li>
-            <li>Designed a cooperative <code>millis()</code> scheduler for 4 Hz refreshes, GPS-health diagnostics, rotating telemetry screens, and stale-fix handling.</li>
+            <li>Designed a cooperative scheduler for <strong>4 Hz</strong> UI refresh, GPS-health diagnostics, and stale-fix handling; implemented waypoint distance/bearing guidance and rejection of implausible GPS position jumps.</li>
+            <li>Retraced logged steps using a map and Pathfinder in a simulated emergency navigation exercise; measured <strong>7-day battery life</strong> against a <strong>5-day</strong> trip target by leaving the device running after the hike.</li>
           </ul>
           <a class="project-link" href="https://github.com/samuel-greene/Pathfinder" target="_blank" rel="noopener">View source on GitHub <span aria-hidden="true">↗</span></a>
           <div class="tech-row">
@@ -178,17 +178,18 @@
         <div class="project-card" data-category="embedded">
           <div class="project-header">
             <span class="mono-tag">Bare-Metal C</span>
-            <h3 class="project-title">Bicycle Speed & GPS Tracker HUD</h3>
+            <h3 class="project-title">Bicycle Speed & GPS Tracking HUD</h3>
           </div>
           <p class="project-desc">
-            A real-time heads-up display streaming speed, trip metrics, and coordinates to a handlebar-mounted OLED screen under tight memory and power constraints.
+            A CC3200-based real-time heads-up display with a NEMO 6 GPS module, streaming speed and trip statistics using GPS/IMU sensor fusion.
           </p>
           <ul class="project-bullets">
-            <li>Tuned noise filtering & sensor fusion to integrate asynchronous GPS/IMU data streams.</li>
-            <li>Wrote bare-metal firmware for interrupt-driven data capture over SPI/I2C.</li>
+            <li>Won <strong>first place</strong> in the Embedded Systems final project showcase.</li>
+            <li>Wrote firmware for concurrent peripheral drivers and interrupt-driven data capture, targeting <strong>more than one week</strong> of operation on a single <strong>3,500 mAh</strong> lithium battery charge.</li>
           </ul>
           <div class="tech-row">
             <span class="tech-pill">Embedded C</span>
+            <span class="tech-pill">CC3200</span>
             <span class="tech-pill">SPI/I2C</span>
             <span class="tech-pill">Sensor Fusion</span>
             <span class="tech-pill">Bare-Metal</span>
@@ -214,7 +215,7 @@
             <span class="tech-pill">GLSL</span>
             <span class="tech-pill">Graphics</span>
           </div>
-          <a class="project-link" href="https://github.com/sammgreene/knights_edge" target="_blank" rel="noopener">View source on GitHub <span aria-hidden="true">↗</span></a>
+          <a class="project-link" href="https://github.com/samuel-greene/knights_edge" target="_blank" rel="noopener">View source on GitHub <span aria-hidden="true">↗</span></a>
         </div>
 
         <!-- Custom Dark Walnut Keychron K2 Case -->
@@ -257,7 +258,7 @@
             <span class="tech-pill">GLSL</span>
             <span class="tech-pill">Graphics</span>
           </div>
-          <a class="project-link" href="https://github.com/IceTap/blithaven" target="_blank" rel="noopener">View source on GitHub <span aria-hidden="true">↗</span></a>
+          <a class="project-link" href="https://github.com/samuel-greene/blithaven" target="_blank" rel="noopener">View source on GitHub <span aria-hidden="true">↗</span></a>
         </div>
 
         <!-- SAMLANG Language Toolchain -->
@@ -270,7 +271,7 @@
             A lexer and token parsing system built for a custom programming language, based on formal Theory of Computation fundamentals.
           </p>
           <ul class="project-bullets">
-            <li>Implemented Pratt parsing techniques for extensible syntax evaluation in linear time.</li>
+            <li>Used Pratt parsing techniques for extensibility.</li>
             <li>Built in modern C++ with custom Makefile build systems.</li>
           </ul>
           <div class="tech-row">
@@ -279,7 +280,7 @@
             <span class="tech-pill">Pratt Parsing</span>
             <span class="tech-pill">Make</span>
           </div>
-          <a class="project-link" href="https://github.com/IceTap/SAMLANG" target="_blank" rel="noopener">View source on GitHub <span aria-hidden="true">↗</span></a>
+          <a class="project-link" href="https://github.com/samuel-greene/Unnamed-Programming-Language" target="_blank" rel="noopener">View source on GitHub <span aria-hidden="true">↗</span></a>
         </div>
       </div>
 
@@ -303,20 +304,20 @@
 
       <div class="stack-box">
         <div class="stack-column">
-          <h4 class="stack-heading">Languages</h4>
-          <p>C / C++, Embedded C, Python, Rust, C#, GLSL, Java, JavaScript, MATLAB</p>
+          <h4 class="stack-heading">Languages & Scripting</h4>
+          <p>Python, Bash, C, C++, C#/.NET</p>
         </div>
         <div class="stack-column">
-          <h4 class="stack-heading">Embedded & Hardware</h4>
-          <p>SPI, I2C, UART, GPIO, Bare-metal MCU, Interrupt Handlers, Sensor Fusion</p>
+          <h4 class="stack-heading">Systems & Tools</h4>
+          <p>Linux/Unix command line, Git, Make, Docker, GitHub Actions</p>
         </div>
         <div class="stack-column">
-          <h4 class="stack-heading">GPU & Scientific</h4>
-          <p>CUDA, PyTorch, TensorFlow, OpenCV, OpenGL, Vulkan, Image Processing</p>
+          <h4 class="stack-heading">Services & Testing</h4>
+          <p>FastAPI, PostgreSQL, HTTP caching, authentication regression testing</p>
         </div>
         <div class="stack-column">
           <h4 class="stack-heading">Cloud & Infrastructure</h4>
-          <p>AWS (EC2, IAM, Lambda), Azure (Container Apps, Files), Docker, FastAPI, PostgreSQL, Linux/Unix</p>
+          <p>Azure Container Apps, Azure Files, Azure Service Bus</p>
         </div>
       </div>
     </section>
@@ -331,7 +332,7 @@
       <div class="edu-card">
         <div class="edu-header">
           <div>
-            <h3 class="edu-title">BS in Computer Engineering & Science</h3>
+            <h3 class="edu-title">BS in Computer Science and Engineering</h3>
             <p class="edu-sub">University of California, Davis * Expected June 2027</p>
           </div>
           <div class="gpa-box">
@@ -361,3 +362,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
